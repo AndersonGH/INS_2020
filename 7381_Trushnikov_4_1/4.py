@@ -26,11 +26,6 @@ def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
 def predict_by_tensor(x_train, weights):
-    relu = lambda x: np.maximum(x, 0)
-    sigmoid = lambda x: 1/(1+np.exp(-x))
-    act = [relu for _ in weights]
-    act[-1] = sigmoid
-    res = x_train.copy()
     for j in range(0, len(weights)):
         if j == len(weights) - 1:
             res = sigmoid((np.dot(res, weights[j][0]) + weights[j][1]))
