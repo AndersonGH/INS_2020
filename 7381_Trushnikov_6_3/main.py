@@ -30,8 +30,8 @@ def getData(size=500, img_size=50):
 
 X_train, y_train, X_test, y_test = getData()
 
-X_train = X_train.reshape([-1, 50, 50, 1])  # make X_train fourth dimension
-X_test = X_test.reshape([-1, 50, 50, 1])  # make X_test fourth dimension
+X_train = X_train.reshape(X_train.shape[0], 50, 50, 1)
+X_test = X_test.reshape(X_test.shape[0], 50, 50, 1)
 
 encoder = LabelBinarizer()
 Y_train = encoder.fit_transform(y_train)  # 1 - Vertical, 0 - Horizontal
